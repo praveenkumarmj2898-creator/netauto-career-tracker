@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Personal NetAuto Career Tracker">
+  <title>NetAuto Career Tracker</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow">PERSONAL LEARNING DASHBOARD</p>
+      <h1>NetAuto Career Tracker</h1>
+      <p class="subtitle">CCNA → Python → Automation → Cloud + SD-WAN</p>
+    </div>
+    <button id="installBtn" class="install hidden">Install app</button>
+  </header>
+
+  <main>
+    <section class="summary panel">
+      <div class="summary-head">
+        <div><p class="eyebrow">YOUR PROGRESS</p><h2 id="overallText">0% completed</h2></div>
+        <span id="taskCount" class="count">0 / 0 tasks</span>
+      </div>
+      <div class="progress"><div id="overallBar"></div></div>
+      <p class="hint">Your progress is saved on this device automatically.</p>
+    </section>
+
+    <section class="toolbar">
+      <h2>Learning roadmap</h2>
+      <button id="addBtn" class="primary">+ Add task</button>
+    </section>
+    <div id="roadmap" class="roadmap"></div>
+
+    <section class="panel notes">
+      <h2>Learning notes</h2>
+      <textarea id="notes" placeholder="Write commands, concepts to revisit, interview questions, or daily notes..."></textarea>
+      <p class="hint">Notes are saved locally on this device.</p>
+    </section>
+
+    <section class="actions">
+      <button id="exportBtn" class="secondary">Export backup</button>
+      <label class="secondary import-label">Import backup<input id="importFile" type="file" accept="application/json"></label>
+      <button id="resetBtn" class="danger">Reset tracker</button>
+    </section>
+    <p class="footer">Personal use • Free static hosting • No account required</p>
+  </main>
+
+  <dialog id="taskDialog">
+    <form id="taskForm" method="dialog">
+      <h2 id="dialogTitle">Add a task</h2>
+      <label>Roadmap stage
+        <select id="taskStage">
+          <option>CCNA</option><option>Python</option><option>Automation</option><option>Cloud + SD-WAN</option>
+        </select>
+      </label>
+      <label>Task name<input id="taskName" maxlength="100" required placeholder="e.g. Practise OSPF troubleshooting"></label>
+      <label>Optional detail<textarea id="taskDetail" rows="3" placeholder="What do you need to learn or practise?"></textarea></label>
+      <div class="dialog-actions">
+        <button type="button" id="cancelBtn" class="secondary">Cancel</button>
+        <button type="submit" class="primary">Save task</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
